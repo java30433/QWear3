@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package kritor.recent;
+
+option csharp_namespace = "Kritor.Recent";
+option java_multiple_files = true;
+option java_package = "io.kritor.recent";
+option go_package = "grpc/kritor/recent";
+
+import "recent/recent_data.proto";
+service RecentService {
+    rpc GetRecentContactInfos (GetRecentContactInfosRequest) returns (GetRecentContactInfosResponse); //获取最近联系人信息(Info, Msg应该叫做消息)
+}
+
+message GetRecentContactInfosRequest {
+}
+
+message GetRecentContactInfosResponse {
+    repeated RecentContactInfo info_list = 1;
+}
